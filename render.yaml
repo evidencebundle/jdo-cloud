@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: jus-dorange-cloud
+    runtime: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: CLOUD_TOKEN
+        value: "jdo_render_2026_change_me"
+      - key: DATA_DIR
+        value: "/opt/render-project/data"
